@@ -1,0 +1,41 @@
+<header class="fixed top-0 left-0 w-full flex items-center justify-between p-4 z-10">
+    <a href="/">
+        <h1 class="text-white font-medium text-5xl">One<span class="text-green font-bold">Fact</span></h1>
+    </a>
+
+    <input type="checkbox" id="sidebar-active" class="hidden" />
+    
+    <label for="sidebar-active">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-10 hover:text-green transition duration-200 ease-in-out cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+    </label>
+
+    <nav class="fixed -top-full left-0 w-full h-screen bg-green text-white flex flex-col items-center justify-center p-4 gap-8 z-50 transition-all duration-1000 ease-in-out" id="sidebar">
+        <label for="sidebar-active" class="absolute top-4 right-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-10 text-dark hover:text-white transition duration-200 ease-in-out cursor-pointer" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </label>
+
+        <ul class="flex flex-col items-center justify-center gap-12 font-primary text-center">
+            <li><a class="text-dark uppercase text-5xl hover:text-white font-bold transition duration-200 ease-in-out" href="/">Inicio</a></li>
+            <li><a class="text-dark uppercase text-5xl hover:text-white font-bold transition duration-200 ease-in-out" href="/about">Sobre Nosotros</a></li>
+            <li><a class="text-dark uppercase text-5xl hover:text-white font-bold transition duration-200 ease-in-out" href="/privacy">Política de Privacidad</a></li>
+        </ul>
+
+        <div class="flex flex-row items-center justify-center gap-4 text-dark">
+            <a href="https://www.instagram.com/onefactmx/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition duration-200 ease-in-out">
+                <p>Instagram</p>
+            </a>
+            <a href="https://www.facebook.com/OneFactMX/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition duration-200 ease-in-out">
+                <p>Facebook</p>
+            </a>
+    </nav>
+</header>
+
+<style>
+    #sidebar-active:checked ~ #sidebar {
+        top: 0;
+    }
+</style>
