@@ -1,3 +1,10 @@
+---
+// Supports weights 300-700
+import '@fontsource-variable/space-grotesk';
+// Supports weights 100-700
+import '@fontsource-variable/ibm-plex-sans';
+---
+
 <!doctype html>
 <html lang="es">
 	<head>
@@ -12,10 +19,63 @@
 </html>
 
 <style>
-	html,
+	:root {
+		color-scheme: light dark;
+		
+		/*Colors*/
+		--dark: #121212;
+		--white: #F4F4F4;
+		--blue: #1560BD;
+		--green: #2E8B57;
+
+		/*Fonts*/
+		--primary-font: 'Space Grotesk Variable', sans-serif;
+		--secondary-font: 'IBM Plex Sans Variable', sans-serif;
+
+		/* font-synthesis: none;
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale; */
+	}
+
+	* { margin: 0; padding: 0; }
+	*, *::before, *::after { box-sizing: border-box; }
+	html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: none;}
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		background-color: var(--dark);
+		color: var(--white);	
+		font-family: var(--secondary-font);
+		min-height: 100vh;
+		max-width: 1920px;
+		margin: 0 auto;
+	}
+
+	input, button, textarea, select { font: inherit; }
+	p { text-wrap: pretty; overflow-wrap: break-word; }
+	h1, h2, h3, h4, h5, h6 { text-wrap: balance; overflow-wrap: break-word; }
+	h1{ font-family: var(--secondary-font); font-size: 3.2rem; }
+	img, video, svg { max-width: 100%; height: auto; }
+	a { text-decoration: none; color: inherit; }
+	ul, ol { list-style: none; }
+	*::selection {
+        background-color: var(--blue);
+        color: var(--dark);
+    }
+
+	/* @media (prefers-color-scheme: light) {
+		:root {
+			--white: #2C2C2C;
+			--dark: #F5F1EA;
+		}
+	} */
+
+	@media (prefers-reduced-motion: reduce) {
+	* { 
+		animation-duration: 0.01ms !important; 
+		animation-iteration-count: 1 !important; 
+		transition-duration: 0.01ms !important; 
+		scroll-behavior: auto !important;
+		transition: none; 
+	}
 	}
 </style>
