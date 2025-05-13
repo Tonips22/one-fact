@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/ibm-plex-sans": "^5.2.5",
+    "@fontsource-variable/space-grotesk": "^5.2.7",
     "astro": "^5.7.12"
   }
 }
