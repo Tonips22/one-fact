@@ -1,0 +1,60 @@
+<section class="flex flex-col items-center justify-center gap-16 min-h-screen">
+    <h2 class="text-3xl font-primary uppercase">Próxima curiosidad en ...</h2>
+    <div id="countdown" class="flex flex-row items-center justify-center gap-8 font-primary">
+        <div class="flex flex-col items-center justify-center gap-2 countdown-item text-green font-bold">
+            <span id="hours" class="text-[164px] lg:w-48">00</span>
+            <span class="countdown-label uppercase">Horas</span>
+        </div>
+        <span class="text-[164px] text-green self-start font-medium">:</span>
+        <div class="flex flex-col items-center justify-center gap-2 countdown-item text-green font-bold">
+            <span id="minutes" class="text-[164px] lg:w-48">00</span>
+            <span class="countdown-label uppercase">Minutos</span>
+        </div>
+        <span class="text-[164px] text-green self-start font-medium">:</span>
+        <div class="flex flex-col items-center justify-center gap-2 countdown-item text-green font-bold">
+            <span id="seconds" class="text-[164px] lg:w-48">00</span>
+            <span class="countdown-label uppercase">Segundos</span>
+        </div>
+    </div>
+</section>
+
+<script>
+    const hoursElement = document.getElementById('hours') as HTMLSpanElement;
+    const minutesElement = document.getElementById('minutes') as HTMLSpanElement;
+    const secondsElement = document.getElementById('seconds') as HTMLSpanElement;
+
+  function startCountdown() {
+    // Obtener la fecha actual
+    const now = new Date();
+
+    // Crear una nueva fecha: mañana a las 00:00:00
+    const tomorrow = new Date();
+    tomorrow.setHours(36, 0, 0, 0); // 12:00:00 AM del día siguiente
+
+    function updateCountdown() {
+      const now = new Date();
+      const distance = tomorrow - now;
+
+      if (distance <= 0) {
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
+        clearInterval(interval);
+        return;
+      }
+
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      hoursElement.textContent = String(hours).padStart(2, '0');
+      minutesElement.textContent = String(minutes).padStart(2, '0');
+      secondsElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown(); // ejecutar una vez al inicio
+    const interval = setInterval(updateCountdown, 1000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
