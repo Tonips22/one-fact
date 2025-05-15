@@ -44,6 +44,7 @@ import '@styles/global.css';
 	*, *::before, *::after { box-sizing: border-box; }
 	html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: none;}
 	body {
+		cursor: url('/src/assets/cursor.png'), auto;
 		background-color: var(--dark);
 		color: var(--white);	
 		font-family: var(--secondary-font);
@@ -60,9 +61,10 @@ import '@styles/global.css';
 	a { text-decoration: none; color: inherit; }
 	ul, ol { list-style: none; }
 	*::selection {
-        background-color: var(--blue);
+        background-color: var(--green);
         color: var(--dark);
     }
+	
 
 	/* @media (prefers-color-scheme: light) {
 		:root {
@@ -80,4 +82,15 @@ import '@styles/global.css';
 		transition: none; 
 	}
 	}
+</style>
+
+<style is:global>
+	.question{
+		cursor: url('/src/assets/question.png'), help;
+	}
+
+	a, .hover{
+		cursor: url('/src/assets/hover.png'), pointer;
+	}
+
 </style>

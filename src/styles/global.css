@@ -10,4 +10,9 @@
     /*Fonts*/
     --font-primary: var(--primary-font);
     --font-secondary: var(--secondary-font);
+
+    /*Cursor*/
+    --cursor-normal: url('/src/assets/cursor.png'), auto;
+    --cursor-hover: url('/src/assets/hover.png'), pointer;
+    --cursor-question: url('/src/assets/question.png'), help;
 }
