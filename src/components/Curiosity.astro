@@ -1,0 +1,57 @@
+---
+const { title, image, date, isPrincipal = false } = Astro.props; 
+---
+
+<article>
+
+    {
+        isPrincipal ? (<div></div>) : (
+            <header id="label" class="flex flex-row items-center justify-between bg-green p-4 rounded-xl hover gap-4">
+                <p class="text-md text-white font-primary">{title}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" id="svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 p-2 rounded-full bg-transparent text-white border-2 border-white hover:bg-white hover:text-green transition-all duration-200 ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </header>
+        )
+    }
+
+    <main id="content" class=` overflow-hidden ${isPrincipal ? "max-h-[1000px] rounded-xl" : "max-h-0 rounded-b-xl"} transition-all duration-1000 ease-in-out`>
+        <div class=`flex flex-col md:flex-row items-start justify-center gap-8 ${isPrincipal ? "bg-green/20 text-white border-2 border-green" : "bg-dark/80 tex-white"} p-8`>
+            <img src={image} alt={title} class="rounded-xl w-full md:w-1/4 object-center object-contain" />
+            <div class="flex flex-col justify-center gap-4 w-full">
+                <p>¿Sabías Que?</p>
+                <h2 class="text-xl md:text-3xl uppercase font-primary font-bold">{title}</h2>
+                <p class="text-sm md:text-md">
+                    <slot/>
+                </p>
+                <p class=`text-sm md:text-md ${isPrincipal ? "text-white/20" : "text-white/20"} `>Fecha: {date}</p>
+            </div>
+        </div>
+    </main>
+</article>
+
+
+<script>
+    const label = document.getElementById('label') as HTMLElement;
+    const svg = document.getElementById('svg') as HTMLElement;
+    const content = document.getElementById('content') as HTMLElement;
+
+    label.addEventListener('click', () => {
+        const isOpen = content.classList.contains('max-h-0');
+        
+        if (isOpen) {
+            content.classList.remove('max-h-0');
+            content.classList.add('max-h-[1000px]');
+            label.classList.add('rounded-t-xl');
+            label.classList.remove('rounded-xl');
+        } else {
+            content.classList.remove('max-h-[1000px]');
+            content.classList.add('max-h-0');
+            label.classList.remove('rounded-t-xl');
+            label.classList.add('rounded-xl');
+        }
+
+        svg.classList.toggle('rotate-180');
+    });
+
+</script>
